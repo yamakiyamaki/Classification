@@ -27,7 +27,7 @@ with open(test_file) as f:
     reader = csv.reader(f)
     l = [row for row in reader]
     image_path = 'DATASETS/Emotion6/Images/'
-    dirs = os.listdir(image_path) # os.listdir() : Imagesディレクトリの構造を取得
+    dirs = os.listdir(image_path)
     folder_dir = [f for f in dirs if os.path.isdir(os.path.join(image_path, f))]
 for i in range(len(l)-1):
     image_name = l[i+1][0].replace('.jpg', '')
@@ -36,4 +36,4 @@ for i in range(len(l)-1):
             infe_image_path = image_path + l[i+1][0]
             if not os.path.exists(os.path.join(output_path, 'test_images', folder_dir[j])):
                 os.makedirs(os.path.join(output_path, 'test_images', folder_dir[j]))
-            shutil.copy(infe_image_path, os.path.join(output_path, 'test_images', folder_dir[j])) # Imagesディレクトリの中のファイルをsplit_dataディレクトリにコピー # shutil.copy: 第一引数のファイルの内容を第二引数にコピー
+            shutil.copy(infe_image_path, os.path.join(output_path, 'test_images', folder_dir[j]))
