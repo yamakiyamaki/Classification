@@ -94,10 +94,10 @@ for index, classlabel in enumerate(folder):
         image = Image.open(file)
         image = image.convert("RGB")
         image = image.resize((INPUT_IMAGE_SIZE, INPUT_IMAGE_SIZE))
-        data = np.asarray(image)
+        data = np.asarray(image) # リストをNumpy配列に変換 # https://punhundon-lifeshift.com/array_asarray
         X.append(data)
         Y.append(index)
-X = np.array(X)
+X = np.array(X) # https://punhundon-lifeshift.com/array_asarray
 Y = np.array(Y)
 
 #画像データを0~1の値へ変換
@@ -145,12 +145,13 @@ model.compile(loss='categorical_crossentropy',
 # モデル構成の確認
 # model.summary()
 
-# EaelyStoppingの設定
+# EaelyStoppingの設定(学習が進まなくなったら学習を止める)
 early_stopping = EarlyStopping(monitor='val_loss', min_delta=0, patience=30, verbose=0, mode='auto')
 
 # 訓練
 #history = model.fit(train_images, train_labels, validation_data = (valid_images, valid_labels),
 #                    batch_size=BATCH_SIZE, epochs=EPOCH_NUM, callbacks=[early_stopping])
+# trainの実行
 history = model.fit(train_images, train_labels, validation_split = 0.30,
                     batch_size=BATCH_SIZE, epochs=EPOCH_NUM, callbacks=[early_stopping])
 
