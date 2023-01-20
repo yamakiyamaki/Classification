@@ -28,7 +28,7 @@ def duplicate_rename2(file_path):
         return file_path
 
 with open(train_file) as f:
-    reader = csv.reader(f)
+    reader = csv.reader(f) # csvの内容を行ごとに取得
     l = [row for row in reader]
     image_path = 'DATASETS/Emotion6/Images/'
     dirs = os.listdir(image_path)
@@ -72,14 +72,14 @@ for i in range(len(l)-1):
                 x = int(l[i+1][1])
                 # 移動先のファイルが既に存在する場合は、代わりの名前を見つける。
                 name, ext = os.path.splitext(filename)
-                if os.path.exists(os.path.join(output_path, folder_dir[x], filename)):
+                if os.path.exists(os.path.join(output_path, folder_dir[x-1], filename)):
                     newname = '{}({}){}'.format(name, j+1, ext)
-                    newpath = os.path.join(output_path, folder_dir[x])
+                    newpath = os.path.join(output_path, folder_dir[x-1])
                     print('new:{} -> {}'.format(infe_image_path, os.path.join(newpath, newname)))
                     shutil.copy(infe_image_path, os.path.join(newpath, newname))
                 else:
-                    print('base:{} -> {}'.format(infe_image_path, os.path.join(output_path, folder_dir[x], filename)))
-                    shutil.copy(infe_image_path, os.path.join(output_path, folder_dir[x]))
+                    print('base:{} -> {}'.format(infe_image_path, os.path.join(output_path, folder_dir[x-1], filename)))
+                    shutil.copy(infe_image_path, os.path.join(output_path, folder_dir[x-1]))
             count2+=1
         
 print(count)
