@@ -30,7 +30,7 @@ def duplicate_rename2(file_path):
 with open(train_file) as f:
     reader = csv.reader(f)
     l = [row for row in reader]
-    image_path = 'DATASETS/Emotion6/split_data/train_images/'
+    image_path = 'DATASETS/Emotion6/Images/'
     dirs = os.listdir(image_path)
     folder_dir = [f for f in dirs if os.path.isdir(os.path.join(image_path, f))]
 
