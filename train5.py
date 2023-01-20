@@ -109,7 +109,7 @@ X = X / 255.0
 Y = to_categorical(Y, CLASS_NUM)
 
 # 学習用データと検証用データに分割する
-train_images, valid_images, train_labels, valid_labels = train_test_split(X, Y, test_size = 0.20)
+train_images, valid_images, train_labels, valid_labels = train_test_split(X, Y, test_size = 0.30)
 
 # -------------------------------------------------------------------------------------
 #                      モデルアーキテクチャ定義部
