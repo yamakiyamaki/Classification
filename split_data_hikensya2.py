@@ -54,7 +54,7 @@ for i in range(len(l)-1):
             infe_image_path = image_path + l[i+1][0]
             dirpath, filename = os.path.split(infe_image_path)
             
-            if l[i+1][1] == "6":
+            if l[i+1][1] == "7":
                 if os.path.exists(os.path.join(neutral_path, filename)):
                     newname = '{}({}){}'.format(name, j+1, ext)
                     print('new:{} -> {}'.format(infe_image_path, os.path.join(neutral_path, newname)))
@@ -73,7 +73,7 @@ for i in range(len(l)-1):
                 # 移動先のファイルが既に存在する場合は、代わりの名前を見つける。
                 name, ext = os.path.splitext(filename)
                 if os.path.exists(os.path.join(output_path, folder_dir[x-1], filename)):
-                    newname = '{}({}){}'.format(name, j+1, ext)
+                    newname = '{}({}){}'.format(name, j, ext)
                     newpath = os.path.join(output_path, folder_dir[x-1])
                     print('new:{} -> {}'.format(infe_image_path, os.path.join(newpath, newname)))
                     shutil.copy(infe_image_path, os.path.join(newpath, newname))
