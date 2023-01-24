@@ -150,15 +150,15 @@ for layer in base_model.layers:
 
 # モデルの構築
 x = base_model.output
-x = tf.keras.layers.GlobalAveragePooling2D()(x)
-"""
+# x = tf.keras.layers.GlobalAveragePooling2D()(x)
+
 x = layers.Flatten()(x)
 x = layers.Dense(1024, activation="relu")(x)
 x = layers.Dropout(0.6)(x)
 x = layers.Flatten()(x)
 x = layers.Dense(256, activation="relu")(x)
 x = layers.Dropout(0.6)(x)
-"""
+
 x = layers.Dense(CLASS_NUM, activation='softmax')(x)
 model = models.Model(base_model.input, x)
 
