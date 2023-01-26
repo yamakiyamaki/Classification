@@ -28,7 +28,8 @@ with open(train_file) as f:
     l = [row for row in reader]
     image_path = 'DATASETS/Emotion6/split_data/train_images/'
     dirs = os.listdir(image_path)
-    folder_dir = [f for f in dirs if os.path.isdir(os.path.join(image_path, f))]
+    # folder_dir = [f for f in dirs if os.path.isdir(os.path.join(image_path, f))]
+    folder_dir = ['anger', 'disgust', 'fear', 'joy', 'sadness', 'surprise', 'neutral']
 
 for i in range(len(l)-1):
     image_name = l[i+1][0].replace('.jpg', '')
